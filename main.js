@@ -5,7 +5,16 @@ let preciosuplemento = 0
 function consulta(){
     opcion = prompt("ingrese plan a seleccionar: \n1. plan alimenticio\n2. rutina de entrenamiento\n3. suplementos")
     if (opcion==1) {
-        
+        const usuarios = [
+            datos = {
+                nombre: prompt("ingrese su nombre"),
+                altura: prompt("ingrese la altura"),
+                peso: prompt("ingrese su peso")
+            },
+        ];
+        alert(datos.nombre)
+        alert(datos.altura)
+        alert(datos.peso)
     }
     if (opcion==2) {
         // tambien vamos a hacer un tipo ticket
