@@ -15,6 +15,16 @@ function consulta(){
         alert(datos.nombre)
         alert(datos.altura)
         alert(datos.peso)
+        let pesos = [];
+        for(let i=0;i<3;i+=1){
+            alert("ingrese su peso en los ultimos 3 meses")
+            peso = prompt("ingrese el peso")
+            pesos[i] = peso 
+        }
+        alert(pesos[0])
+        alert(pesos[1])
+        alert(pesos[2])
+        
     }
     if (opcion==2) {
         // tambien vamos a hacer un tipo ticket
