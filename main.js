@@ -1,33 +1,41 @@
 let opcion = 0
 let preciosuplemento = 0
 
+function pesosaludable(peso, altura){
+    let imc = (peso/altura)**2
+    let imcsaludable = " "
+    let dieta = " "
+    if (imc<18.5) {
+        imcsaludable = "bajo de peso y es recomendable dieta de "
+        dieta = "2500kcal haciendo ejercicio orientado a hipertrofia"
+    } else if (imc>18.5 && imc<=24.9){
+        imcsaludable = "saludable y es recomendable dieta de "
+        dieta = "2000kcal haciendo ejercicio regular"
+    } else if (imc>=25 && imc<29.9) {
+        imcsaludable = "sobrepeso y es recomendable dieta de "
+        dieta = "1750kcal haciendo cardio"
+    } else {
+        imcsaludable = "obesidad y es recomendable dieta de "
+        dieta = "1500kcal haciendo caminatas"
+    }
+    return imcsaludable + dieta;
+}
 
 function consulta(){
-    opcion = prompt("ingrese plan a seleccionar: \n1. plan alimenticio\n2. rutina de entrenamiento\n3. suplementos")
+    opcion = prompt("ingrese plan a seleccionar: \n1. seguimiento profesional\n2. plan alimenticio y rutina de entrenamiento\n3. suplementos")
     if (opcion==1) {
-        const usuarios = [
-            datos = {
-                nombre: prompt("ingrese su nombre"),
-                altura: prompt("ingrese la altura"),
-                peso: prompt("ingrese su peso")
-            },
-        ];
-        alert(datos.nombre)
-        alert(datos.altura)
-        alert(datos.peso)
         let pesos = [];
-        for(let i=0;i<3;i+=1){
-            alert("ingrese su peso en los ultimos 3 meses")
+        alert("ingrese su peso en los ultimos 6 meses")
+        for(let i=0;i<6;i+=1){
+            alert("ingrese el peso de hace " + (i+1)+ " mes/es")
             peso = prompt("ingrese el peso")
             pesos[i] = peso 
         }
-        alert(pesos[0])
-        alert(pesos[1])
-        alert(pesos[2])
-        
     }
     if (opcion==2) {
-        // tambien vamos a hacer un tipo ticket
+        altura = prompt("ingrese su altura")
+        peso = prompt("ingrese su peso")
+        alert(pesosaludable(altura, peso))
     }
     if (opcion==3) {
         let tipodesuplemento = prompt("ingrese que suplemento va a necesitar(creatina, proteína o preentreno):")
