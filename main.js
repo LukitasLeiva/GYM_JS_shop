@@ -1,6 +1,24 @@
 let opcion = 0
 let preciosuplemento = 0
 
+const cambiarTema = document.querySelector(".cambiarModo");
+cambiarTema.addEventListener("click", cambiarColor);
+const body = document.body;
+const footer = document.all[31];
+const header = document.all[7];
+console.log(document.all)
+function cambiarColor() {
+    body.classList.toggle("modoOscuro");
+    footer.classList.toggle("modoOscuro");
+    header.classList.toggle("modoOscuro");
+    if (body.classList.contains("modoOscuro")) {
+        cambiarTema.innerText = "cambiar a modo claro";
+    } else {
+        cambiarTema.innerText = "cambiar a modo oscuro";
+    }
+}
+
+
 function pesosaludable(peso, altura){
     let imc = (peso/altura)**2
     let imcsaludable = " "
@@ -22,15 +40,8 @@ function pesosaludable(peso, altura){
 }
 
 function consulta(){
-    opcion = prompt("ingrese plan a seleccionar: \n1. seguimiento profesional\n2. plan alimenticio y rutina de entrenamiento\n3. suplementos")
     if (opcion==1) {
-        let pesos = [];
-        alert("ingrese su peso en los ultimos 6 meses")
-        for(let i=0;i<6;i+=1){
-            alert("ingrese el peso de hace " + (i+1)+ " mes/es")
-            peso = prompt("ingrese el peso")
-            pesos[i] = peso 
-        }
+        
     }
     if (opcion==2) {
         altura = prompt("ingrese su altura")
