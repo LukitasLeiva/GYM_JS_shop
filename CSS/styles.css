@@ -15,14 +15,14 @@ body{
 }
 
 body.modoOscuro {
-    background-color: #201837;
+    background-color: #2A1D0B;
     color: white;
 }
 footer.modoOscuro{
-    background-color: #2E200C;
+    background-color: #201837;
 }
 header.modoOscuro{
-    background-color: #2E200C;
+    background-color: #201837;
 }
 
 .logo{

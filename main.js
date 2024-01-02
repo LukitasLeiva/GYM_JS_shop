@@ -1,23 +1,47 @@
-let opcion = 0
-let preciosuplemento = 0
-
 const cambiarTema = document.querySelector(".cambiarModo");
-cambiarTema.addEventListener("click", cambiarColor);
 const body = document.body;
-const footer = document.all[31];
+const footer = document.all[32];
 const header = document.all[7];
 console.log(document.all)
-function cambiarColor() {
-    body.classList.toggle("modoOscuro");
-    footer.classList.toggle("modoOscuro");
-    header.classList.toggle("modoOscuro");
-    if (body.classList.contains("modoOscuro")) {
-        cambiarTema.innerText = "cambiar a modo claro";
-    } else {
-        cambiarTema.innerText = "cambiar a modo oscuro";
-    }
+let modoOscuro = localStorage.getItem("modoOscuro");
+
+function activarModoOscuro(){
+    body.classList.add("modoOscuro");
+    footer.classList.add("modoOscuro");
+    header.classList.add("modoOscuro");
+    localStorage.setItem("modoOscuro", "activado");
 }
 
+function desactivarModoOscuro(){
+    body.classList.remove("modoOscuro");
+    footer.classList.remove("modoOscuro");
+    header.classList.remove("modoOscuro");
+    localStorage.setItem("modoOscuro", "desactivado");
+}
+
+if (modoOscuro === "activado") {
+    activarModoOscuro();
+} else {
+    desactivarModoOscuro();
+}
+
+cambiarTema.addEventListener("click", () => {
+    modoOscuro = localStorage.getItem("modoOscuro");
+    if (modoOscuro === "activado") {
+        desactivarModoOscuro();
+    } else {
+        activarModoOscuro();
+    }
+})
+
+{if (body.classList.contains("modoOscuro")) {
+    cambiarTema.innerText = "cambiar a modo claro";
+} else {
+    cambiarTema.innerText = "cambiar a modo oscuro";
+}}
+
+let opcion = 0
+let preciosuplemento = 0
 
 function pesosaludable(peso, altura){
     let imc = (peso/altura)**2
