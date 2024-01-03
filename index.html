@@ -12,32 +12,36 @@
     </header>
     <main>
         <hr>
-        <div class="imagenes">
-            <img class="img1" src="img/gimnasio.png" alt="">
-            <img class="img2" src="img/mancuernaa.png" alt="">
-            <img class="img1" src="img/productos.jpg" alt="">
-        </div>
-        <div class="opciones">
-            <p>Rutina de ejercicios</p>
-            <p>seguimiento profesional</p>
-            <p>plan alimenticio/suplementacion</p>
-        </div>
-        <div class="ingreso">
-            <form action="">
-                <input type="text">
-                <button>enviar</button>
-            </form>
-            <form action="">
-                <p>ingrese que tipo de seguimiento quiere</p>
-                <p>1-solo en rutina de ejercicios</p>
-                <p>2-rutina y plan alimenticio</p>
-                <input type="text">
-                <button>enviar</button>
-            </form>
-            <form action="">
-                <input type="text">
-                <button>enviar</button>
-            </form>
+        <div>
+            <div class="imagenes">
+                <img class="img1" src="img/gimnasio.png" alt="">
+                <img class="img2" src="img/mancuernaa.png" alt="">
+                <img class="img1" src="img/productos.jpg" alt="">
+            </div>
+            <div class="ingreso">
+                <form action="">
+                    <p>Rutina de ejercicios</p>
+                    <input type="text">
+                    <button>enviar</button>
+                </form>
+                <form action="">
+                    <p>seguimiento profesional</p>
+                    <p>ingrese que tipo de seguimiento quiere</p>
+                    <p>1-solo en rutina de ejercicios</p>
+                    <p>2-rutina y plan alimenticio</p>
+                    <input type="text">
+                    <button>enviar</button>
+                </form>
+                <ul id="agregar">
+                    <p>suplementacion</p>
+                    <p>ingresar el nombre del producto para agregarlo, "fin" para terminar</p>
+                    <p>creatina: $15.000-----proteína: $13.000-----preentreno: $11.000</p>
+                    <form action="" id="agregar-form">
+                        <input type="text" id="suplementos-input">
+                        <input type="submit" id="botonSubirSuplementos" value="agregar">
+                    </form>
+                </ul>
+            </div>
         </div>
     </main>
     <footer>

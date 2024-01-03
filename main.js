@@ -1,8 +1,8 @@
+//boton de cambiar de modo
 const cambiarTema = document.querySelector(".cambiarModo");
 const body = document.body;
-const footer = document.all[32];
-const header = document.all[7];
-console.log(document.all)
+const footer = document.querySelector("footer");
+const header = document.querySelector("header");
 let modoOscuro = localStorage.getItem("modoOscuro");
 
 function activarModoOscuro(){
@@ -29,16 +29,50 @@ cambiarTema.addEventListener("click", () => {
     modoOscuro = localStorage.getItem("modoOscuro");
     if (modoOscuro === "activado") {
         desactivarModoOscuro();
+        cambiarTema.innerText = "cambiar a modo oscuro";
     } else {
         activarModoOscuro();
+        cambiarTema.innerText = "cambiar a modo claro";
     }
 })
 
-{if (body.classList.contains("modoOscuro")) {
-    cambiarTema.innerText = "cambiar a modo claro";
-} else {
-    cambiarTema.innerText = "cambiar a modo oscuro";
-}}
+//lista de suplementos(se muere un gatito)
+const agregarForm = document.querySelector("#agregar-form");
+const agregarInput = document.querySelector("#suplementos-input");
+const agregar = document.querySelector("#agregar");
+let costoTotal = 0;
+
+
+agregarForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (agregarInput.value != ""||"fin") {
+        if(agregarInput.value == "creatina"){
+            costoTotal += 15000;
+            costo = 15000;
+            let item = document.createElement("li");
+            item.innerText = agregarInput.value + " con un valor de " + costo;
+            agregar.append(item);
+        }if(agregarInput.value == "proteina"){
+            costoTotal += 13000;
+            costo = 13000;
+            let item = document.createElement("li");
+            item.innerText = agregarInput.value + " con un valor de " + costo;
+            agregar.append(item);
+        }if(agregarInput.value == "preentreno"){
+            costoTotal += 11000;
+            costo = 11000;
+            let item = document.createElement("li");
+            item.innerText = agregarInput.value + " con un valor de " + costo;
+            agregar.append(item);
+        }
+    }if (agregarInput.value === ""){
+        alert("input vacío");
+    }if(agregarInput.value === "fin"){
+        agregar.append(" el precio total es: " + costoTotal);
+    }
+    agregarInput.focus;
+    agregarForm.reset;
+})
 
 let opcion = 0
 let preciosuplemento = 0
@@ -71,26 +105,6 @@ function consulta(){
         altura = prompt("ingrese su altura")
         peso = prompt("ingrese su peso")
         alert(pesosaludable(altura, peso))
-    }
-    if (opcion==3) {
-        let tipodesuplemento = prompt("ingrese que suplemento va a necesitar(creatina, proteína o preentreno):")
-        tipodesuplemento = tipodesuplemento.toLowerCase()
-        switch(tipodesuplemento){
-            case "creatina":
-                preciosuplemento = "el valor de la creatina $15000"
-                alert(preciosuplemento)
-                break;
-            case "proteina","proteína":
-                preciosuplemento = "el valor de la proteina $10000"
-                alert(preciosuplemento)
-                break;
-            case "preentreno":
-                preciosuplemento = "el valor del preentreno $15000"
-                alert(preciosuplemento)
-                break;
-            default:
-                alert("no hay stock")
-        }
     }
 }
 
