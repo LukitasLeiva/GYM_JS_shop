@@ -45,30 +45,57 @@ let costoTotal = 0;
 
 agregarForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (agregarInput.value != ""||"fin") {
-        if(agregarInput.value == "creatina"){
-            costoTotal += 15000;
-            costo = 15000;
-            let item = document.createElement("li");
-            item.innerText = agregarInput.value + " con un valor de " + costo;
-            agregar.append(item);
-        }if(agregarInput.value == "proteina"){
-            costoTotal += 13000;
-            costo = 13000;
-            let item = document.createElement("li");
-            item.innerText = agregarInput.value + " con un valor de " + costo;
-            agregar.append(item);
-        }if(agregarInput.value == "preentreno"){
-            costoTotal += 11000;
-            costo = 11000;
-            let item = document.createElement("li");
-            item.innerText = agregarInput.value + " con un valor de " + costo;
-            agregar.append(item);
+    if(agregarInput.value != ""||"fin") {
+        if(agregarInput.value === "creatina" || "proteina" || "preentreno" || "proteína"){
+            if(agregarInput.value == "creatina"){
+                costoTotal += 15000;
+                costo = 15000;
+                let item = document.createElement("li");
+                item.innerText = agregarInput.value + " con un valor de " + costo;
+                agregar.append(item);
+                pass;
+            }if(agregarInput.value == "proteina"){
+                costoTotal += 13000;
+                costo = 13000;
+                let item = document.createElement("li");
+                item.innerText = agregarInput.value + " con un valor de " + costo;
+                agregar.append(item);
+                pass; 
+            }if(agregarInput.value == "preentreno"){
+                costoTotal += 11000;
+                costo = 11000;
+                let item = document.createElement("li");
+                item.innerText = agregarInput.value + " con un valor de " + costo;
+                agregar.append(item);
+                pass;
+            }
+        }if(agregarInput.value != "creatina" || "proteina" || "preentreno" || "proteína"){
+            if(agregarInput.value == "fin"){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Finalizado",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Ingreso incorrecto",
+                });
+            }
         }
-    }if (agregarInput.value === ""){
-        alert("input vacío");
+    }if(agregarInput.value === ""){
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "ingreso vacío",
+        });
     }if(agregarInput.value === "fin"){
         agregar.append(" el precio total es: " + costoTotal);
+        costoTotal = 0;
+        pass;
     }
     agregarInput.focus;
     agregarForm.reset;
