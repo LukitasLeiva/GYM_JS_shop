@@ -52,24 +52,35 @@ header.modoOscuro{
 
 .imagenes{
     display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    top: 20px;
-    right: 30px;
-}
-
-.opciones{
-    display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     position: relative;
     top: 20px;
 }
 
 .ingreso{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     position: relative;
     top: 20px;
+}
+.form12{
+    width: 550px;
+    position: relative;
+    padding-left: 10%;
+}
+#agregar{
+    padding-left: 5%;
+}
+
+#botonSeguimiento{
+    position: relative;
+    top: 25px;
+    right: 110px;
+}
+
+#seguimiento{
+    position: relative;
+    top: 25px;
 }
 
 footer{

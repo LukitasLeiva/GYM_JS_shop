@@ -42,6 +42,28 @@ const agregarInput = document.querySelector("#suplementos-input");
 const agregar = document.querySelector("#agregar");
 let costoTotal = 0;
 
+window.addEventListener("DOMContentLoaded", () => {
+    fetch("productos.json")
+        .then((respuesta) =>{
+            return respuesta.json();
+        })
+        .then((data)=>{
+            hacerProductos(data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+function hacerProductos(productos){
+    const contenido = document.querySelector("#productos");
+    let html = "";
+    productos.forEach((producto)=>{
+        html += `
+        <p>${producto.name}: ${producto.price}</p>
+        `;
+    })
+    contenido.innerHTML = html;
+}
 
 agregarForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -101,39 +123,49 @@ agregarForm.addEventListener("submit", (e) => {
     agregarForm.reset;
 })
 
-let opcion = 0
-let preciosuplemento = 0
+//seguimiento
+const pesoIngresado = document.querySelector("#pesoSubmit");
+const alturaIngresado = document.querySelector("#alturaSubmit");
+const mensaje = document.querySelector("#seguimiento");
+const botonMensaje = document.querySelector("#botonSeguimiento");
+const botones = document.querySelector("#botones");
+
+let peso = pesoIngresado.value;
+let altura = alturaIngresado.value;
+let imcsaludable = " ";
+let dieta = " ";
+
+botones.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
+
 
 function pesosaludable(peso, altura){
-    let imc = (peso/altura)**2
-    let imcsaludable = " "
-    let dieta = " "
-    if (imc<18.5) {
+    let imc = (peso/altura)**2;
+    if(imc<18.5) {
         imcsaludable = "bajo de peso y es recomendable dieta de "
         dieta = "2500kcal haciendo ejercicio orientado a hipertrofia"
-    } else if (imc>18.5 && imc<=24.9){
+    }if(imc>18.5 && imc<=24.9){
         imcsaludable = "saludable y es recomendable dieta de "
         dieta = "2000kcal haciendo ejercicio regular"
-    } else if (imc>=25 && imc<29.9) {
+    }if(imc>=25 && imc<29.9) {
         imcsaludable = "sobrepeso y es recomendable dieta de "
         dieta = "1750kcal haciendo cardio"
-    } else {
+    }else{
         imcsaludable = "obesidad y es recomendable dieta de "
         dieta = "1500kcal haciendo caminatas"
     }
     return imcsaludable + dieta;
 }
 
-function consulta(){
-    if (opcion==1) {
-        
-    }
-    if (opcion==2) {
-        altura = prompt("ingrese su altura")
-        peso = prompt("ingrese su peso")
-        alert(pesosaludable(altura, peso))
-    }
-}
+botonMensaje.addEventListener("click", (e) => {
+    e.preventDefault();
+    mensaje.innerText = pesosaludable(peso, altura)
+    console.log(peso, altura);
+})
+
+//rutina de ejercicios
+
 
 
 

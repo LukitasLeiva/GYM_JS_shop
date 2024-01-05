@@ -1,0 +1,13 @@
+[
+    {
+        "name": "creatina",
+        "price": 15000
+    },
+    {
+        "name": "proteina",
+        "price": 13000
+    },{
+        "name": "preentreno",
+        "price": 11000
+    }
+]

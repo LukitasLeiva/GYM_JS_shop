@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym shop</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,23 +20,28 @@
                 <img class="img1" src="img/productos.jpg" alt="">
             </div>
             <div class="ingreso">
-                <form action="">
+                <form action="" class="form12">
                     <p>Rutina de ejercicios</p>
+                    <p>ingresar su peso en los ultimos 12 meses</p>
                     <input type="text">
                     <button>enviar</button>
                 </form>
-                <form action="">
+                <form action="" class="form12">
                     <p>seguimiento profesional</p>
-                    <p>ingrese que tipo de seguimiento quiere</p>
-                    <p>1-solo en rutina de ejercicios</p>
-                    <p>2-rutina y plan alimenticio</p>
-                    <input type="text">
-                    <button>enviar</button>
+                    <p>se necesita que ingreses los siguientes datos:</p>
+                    <p>peso:</p>
+                    <input type="text" id="pesoSubmit">
+                    <input type="submit" id="botones">
+                    <p>altura</p>
+                    <input type="text" id="alturaSubmit">
+                    <input type="submit" id="botones">
+                    <button id="botonSeguimiento">mostrar</button>
+                    <p id="seguimiento"></p>
                 </form>
                 <ul id="agregar">
                     <p>suplementacion</p>
                     <p>ingresar el nombre del producto para agregarlo, "fin" para terminar</p>
-                    <p>creatina: $15.000-----proteína: $13.000-----preentreno: $11.000</p>
+                    <p id="productos"></p>
                     <form action="" id="agregar-form">
                         <input type="text" id="suplementos-input">
                         <input type="submit" id="botonSubirSuplementos" value="agregar">
@@ -49,6 +55,5 @@
         <button class="cambiarModo">Cambiar a modo oscuro</button>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="main.js"></script>
 </body>
 </html>
